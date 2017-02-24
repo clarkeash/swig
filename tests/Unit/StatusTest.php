@@ -31,7 +31,7 @@ class StatusTest extends TestCase
     {
         $this->assertTrue(Assert::response(new Response(200))->status()->inRange(200, 299));
         $this->assertTrue(Assert::response(new Response(299))->status()->inRange(200, 299));
-        
+
         $this->assertFalse(Assert::response(new Response(199))->status()->inRange(200, 299));
         $this->assertFalse(Assert::response(new Response(300))->status()->inRange(200, 299));
     }
