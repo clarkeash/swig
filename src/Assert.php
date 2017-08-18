@@ -3,6 +3,7 @@
 namespace Clarkeash\Swig;
 
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\TransferStats;
 
 class Assert
 {
@@ -41,5 +42,10 @@ class Assert
     public function content()
     {
         return new Content($this->response);
+    }
+
+    public function took(TransferStats $stats)
+    {
+        return new Timer($stats);
     }
 }
