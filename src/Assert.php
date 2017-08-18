@@ -37,4 +37,9 @@ class Assert
     {
         return new Status($this->response);
     }
+
+    public function content()
+    {
+        return new Content($this->response);
+    }
 }
