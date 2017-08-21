@@ -2,8 +2,9 @@
 
 namespace Clarkeash\Swig;
 
+use DOMDocument;
 use GuzzleHttp\Psr7\Response;
-use XMLReader;
+use InvalidArgumentException;
 
 class Content
 {
@@ -30,7 +31,7 @@ class Content
 
             return true;
         }
-        catch (\InvalidArgumentException $exception)
+        catch (InvalidArgumentException $exception)
         {
             return false;
         }
@@ -44,7 +45,7 @@ class Content
 
         libxml_use_internal_errors(true);
 
-        $doc = new \DOMDocument('1.0', 'utf-8');
+        $doc = new DOMDocument('1.0', 'utf-8');
         $doc->loadXML($contents);
 
         $errors = libxml_get_errors();
